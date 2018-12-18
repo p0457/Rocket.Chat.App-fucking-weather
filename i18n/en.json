@@ -1,0 +1,8 @@
+{
+  "Slash_Command_Description": "Finds the fucking weather for the location provided.",
+  "Slash_Command_Params_Example": "[location]",
+  "Customize_Icon": "Customize Icons",
+  "Customize_Icon_Description": "Change the icon that is used for messages from this integration.",
+  "Customize_Name": "Customize Name",
+  "Customize_Name_Description": "Choose the username that this integration will post as."
+}
