@@ -12,23 +12,21 @@ export class FuckingWeatherCommand implements ISlashCommand {
         const username = await read.getEnvironmentReader().getSettings().getValueById('fuckingweather_name');
 
         let text = `Sorry, couldn't find that location`;
-        let successful = false;
 
         const location = context.getArguments().slice().join(' ');
         const url = 'http://thefuckingweather.com/Where/' + location;
 
         const response = await http.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }); // Plz no blacklist
         if (response) {
-          const body = response.content; // Is is response.data?
+          const body = response.content;
           if (body) {
             const tempMatch = body.match(/<span class="temperature jsMainTemp" tempf="\d*">(\d+)/);
             const remarkMatch = body.match(/<p class="remark jsRemark">(.*)</);
             const flavorMatch = body.match(/<p class="flavor">(.*)</);
             if (tempMatch !== null && remarkMatch !== null && flavorMatch !== null) {
-              successful = true;
               const temp = tempMatch[1];
               const remark = remarkMatch[1];
-              const flavor = remarkMatch[1];
+              const flavor = flavorMatch[1];
               text = '*' + temp + ' degrees in ' + location +  '?!*\n' + remark + '\n' + flavor;
             }
           }
