@@ -2,7 +2,7 @@
 
 Gets the fucking weather in your fucking location.
 
-## DEPRECATED UNTIL I CAN SPARE SOME TIME
+## DEPRECATED, SERVICE APPEARS DEAD
 
 ## Configuration
 
